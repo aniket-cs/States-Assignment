@@ -5,16 +5,7 @@ import java.util.*;
 
 public class States{
     public static void main(String[] args) {
-        Map<String,List<String>> westbengal= new HashMap<String,List<String>>();
 
-        List<String> wb = new ArrayList<>();
-        wb.add("Kolkata");
-        wb.add("North 24 Parganas");
-        wb.add("South 24 Parganas");
-        wb.add("Howrah");
-        wb.add("Bankura");
-
-        westbengal.put("West Bengal", wb); //adding in the map
 
         List<String> mh = new ArrayList<>();
         mh.add("Pune");
@@ -46,7 +37,8 @@ public class States{
                     case "west bengal":
 
                     {
-                        for (Map.Entry<String, List<String>> e : westbengal.entrySet())
+                        WestBengal wb = new WestBengal();
+                        for (Map.Entry<String, List<String>> e : wb.westBengal().entrySet())
                             System.out.println("Key: " + e.getKey()
                                     + " Value: " + e.getValue());
 
