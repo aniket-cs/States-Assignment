@@ -6,29 +6,10 @@ import java.util.*;
 public class States{
     public static void main(String[] args) {
 
-
-        List<String> mh = new ArrayList<>();
-        mh.add("Pune");
-        mh.add("Mumbai");
-        mh.add("Nashik");
-        mh.add("Nagpur");
-        mh.add("Solapur");
-        Map<String,List<String>> maharastra= new HashMap<String,List<String>>();
-        maharastra.put("Maharashtra", mh);//adding in the map
-
-        Map<String,List<String>> gujrat= new HashMap<String,List<String>>();
-        List<String> gj = new ArrayList<>();
-        gj.add("Surat");
-        gj.add("Ahmedabad");
-        gj.add("Vadodara");
-        gj.add("Rajkot");
-        gj.add("Jamnagar");
-
-        gujrat.put("Gujarat", gj);//adding in the map
-
         try (Scanner sc = new Scanner(System.in)) {
             lp : while(true){
-                System.out.println("Enter the name of state :");
+                System.out.println("Enter a state name among 'West Bengal', 'Maharastra' and 'Gujrat' :");
+
 
                 String key = sc.nextLine();
                 String ch = key.toLowerCase();
@@ -39,31 +20,36 @@ public class States{
                     {
                         WestBengal wb = new WestBengal();
                         for (Map.Entry<String, List<String>> e : wb.westBengal().entrySet())
-                            System.out.println("Key: " + e.getKey()
-                                    + " Value: " + e.getValue());
-
+                            System.out.println("The State you entered : " + e.getKey()
+                                    + "\nThe renowned districts : " + e.getValue());
+                        System.out.println( "For Exiting type 'Exit' or ");
                     }
                     break;
                     case "maharastra" :
                     {
-                        for (Map.Entry<String, List<String>> e : maharastra.entrySet())
-                            System.out.println("Key: " + e.getKey()
-                                    + " Value: " + e.getValue());
+                        Maharastra mh = new Maharastra();
+                        for (Map.Entry<String, List<String>> e : mh.maharastra().entrySet())
+                            System.out.println("The State you entered : " + e.getKey()
+                                    + "\nThe renowned districts : " + e.getValue());
+                        System.out.println( "For Exiting type 'Exit' or ");
                     }
                     break;
                     case "gujrat" : {
-                        for (Map.Entry<String, List<String>> e : gujrat.entrySet())
-                            System.out.println("Key: " + e.getKey()
-                                    + " Value: " + e.getValue());
+
+                        Gujrat gj = new Gujrat();
+                        for (Map.Entry<String, List<String>> e : gj.gujrat().entrySet())
+                            System.out.println("The State you entered : " + e.getKey()
+                                    + "\nThe renowned districts : " + e.getValue());
+                        System.out.println( "For Exiting type 'Exit' or ");
                     }
                     break;
 
                     case "exit" :
-                        System.out.println("\n\n Okay, thanks for using the system!! See you soon :) ");
+                        System.out.println("\n\n Goodbye. ");
                         break lp;
 
                     default :
-                        System.out.println("Opps!! I couldn't find the state name");
+                        System.out.println("Couldn't find the state name");
 
                         System.out.println("Do you want to continue? (Y/N)");
                         String opt = sc.nextLine();
@@ -71,7 +57,7 @@ public class States{
                             break;
                         }
                         else if(opt.equals("N") || opt.equals("n")){
-                            System.out.println("\n\n Okay, thanks for using the system!! See you soon :) ");
+                            System.out.println("\n\nGoodbye ");
                             break lp;
                         }
                         else{
