@@ -1,5 +1,6 @@
 # States-Assignment
 
+Task to do - 
 Create a hashmap 
 Keys - state names
 Values - 5 districts 
